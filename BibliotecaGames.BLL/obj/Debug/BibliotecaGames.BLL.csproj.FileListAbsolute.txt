@@ -1,0 +1,11 @@
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.BLL.dll
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.BLL.pdb
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.DAL.dll
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.Entities.dll
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.DAL.pdb
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\bin\Debug\BibliotecaGames.Entities.pdb
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\obj\Debug\BibliotecaGames.BLL.csproj.AssemblyReference.cache
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\obj\Debug\BibliotecaGames.BLL.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\obj\Debug\BibliotecaGames.BLL.csproj.CopyComplete
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\obj\Debug\BibliotecaGames.BLL.dll
+C:\Users\lucas\source\repos\BibliotecaGames\BibliotecaGames.BLL\obj\Debug\BibliotecaGames.BLL.pdb
