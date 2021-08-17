@@ -31,7 +31,7 @@ namespace BibliotecaGames.DAL
 				{
 					usuario = new Usuario();
 
-					usuario.id = Convert.ToInt32(reader["id"]);
+					usuario.Id = Convert.ToInt32(reader["id"]);
 					usuario.NomeUsuario = reader["usuario"].ToString();
 					usuario.Senha = reader["senha"].ToString();
 					usuario.Perfil = Convert.ToChar(reader["perfil"]);

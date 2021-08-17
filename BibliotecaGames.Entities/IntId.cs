@@ -8,6 +8,6 @@ namespace BibliotecaGames.Entities
 {
 	public class IntId
 	{
-		public int id { get; set; }
+		public int Id { get; set; }
 	}
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaGames.Entities
 {
-	public class Jogo
+	public class Jogo: IntId
 	{
 		public string Titulo { get; set; }
-		public double ValorPago { get; set; }
+		public double? ValorPago { get; set; }
 		public string Imagem { get; set; }
-		public DateTime DataCompra { get; set; }
+		public DateTime? DataCompra { get; set; }
 	}
 }

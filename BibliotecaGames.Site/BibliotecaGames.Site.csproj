@@ -84,7 +84,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\ImagensJogos\ResidentEvil4.jpg" />
+    <Content Include="Content\Jogos\catalogo.css" />
     <Content Include="Global.asax" />
+    <Content Include="Jogos\CadastroEdicaoJogo.aspx" />
+    <Content Include="Jogos\Catalogo.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -103,6 +107,27 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Jogos\CadastroEdicaoJogo.aspx.cs">
+      <DependentUpon>CadastroEdicaoJogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jogos\CadastroEdicaoJogo.aspx.designer.cs">
+      <DependentUpon>CadastroEdicaoJogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jogos\Catalogo.aspx.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jogos\Catalogo.aspx.designer.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jogos\SiteMasterPage.Master.cs">
+      <DependentUpon>SiteMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jogos\SiteMasterPage.Master.designer.cs">
+      <DependentUpon>SiteMasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +148,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Jogos\SiteMasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
