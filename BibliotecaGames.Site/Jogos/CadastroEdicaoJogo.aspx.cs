@@ -1,4 +1,5 @@
 ﻿using BibliotecaGames.BLL;
+using BibliotecaGames.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,14 @@ namespace BibliotecaGames.Site.Jogos
 
 		protected void BtnGravar_Click(object sender, EventArgs e)
 		{
+			var jogo = new Jogo();
 
+			jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
+			jogo.IdGenero = Convert.ToInt32(DdlGenero.SelectedValue);
+			jogo.Titulo = TxtTitulo.Text;
+			jogo.Imagem = FileUploadImage.FileName;
+			jogo.ValorPago = string.IsNullOrWhiteSpace(TxtValorPago.Text) ? (double?) null : Convert.ToDouble(TxtValorPago.Text);
+			jogo.DataCompra = string.IsNullOrWhiteSpace(TxtDataCompra.Text) ? (DateTime?) null : Convert.ToDateTime(TxtDataCompra.Text);
 		}
 
 		private void CarregarEditoresNaCombo()
