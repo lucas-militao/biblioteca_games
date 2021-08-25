@@ -6,6 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 	<h2>Catálogo de Jogos</h2>
+
+	<a href="CadastroEdicaoJogo.aspx">Cadastrar Novo Jogo</a>
 	<hr />
 	<asp:Repeater ID="RepeaterJogos" runat="server">
 		<ItemTemplate>

@@ -56,9 +56,8 @@ namespace BibliotecaGames.DAL
 			{
 				var command = new SqlCommand();
 				command.Connection = Conexao.connection;
-				command.CommandText = @"USE [biblioteca_jogos]
-										GO
-										INSERT INTO [dbo].[jogos]
+
+				command.CommandText = @"INSERT INTO [dbo].[jogos]
 												   ([titulo]
 												   ,[valor_pago]
 												   ,[data_compra]
@@ -67,27 +66,27 @@ namespace BibliotecaGames.DAL
 												   ,[imagem])
 											 VALUES
 												   (@TITULO
-												   ,@VALOR_PAGO>
-												   ,@DATA-COMPRA
+												   ,@VALOR_PAGO
+												   ,@DATA_COMPRA
 												   ,@ID_GENERO
 												   ,@ID_EDITOR
-												   ,@IMAGEM)
-										GO";
+												   ,@IMAGE)";
+
 
 				command.Parameters.AddWithValue("@TITULO", jogo.Titulo);
 				command.Parameters.AddWithValue("@VALOR_PAGO", jogo.ValorPago);
-				command.Parameters.AddWithValue("@DATA-COMPRA", jogo.DataCompra);
+				command.Parameters.AddWithValue("@DATA_COMPRA", jogo.DataCompra);
 				command.Parameters.AddWithValue("@ID_GENERO", jogo.IdGenero);
 				command.Parameters.AddWithValue("@ID_EDITOR", jogo.IdEditor);
-				command.Parameters.AddWithValue("@IMAGEM", jogo.IdEditor);
+				command.Parameters.AddWithValue("@IMAGE", jogo.Imagem);
 
 				Conexao.Conectar();
 
 				return command.ExecuteNonQuery();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				throw;
+				throw ex;
 			}
 			finally
 			{

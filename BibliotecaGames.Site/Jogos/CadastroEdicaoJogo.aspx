@@ -37,6 +37,7 @@
 			<asp:RequiredFieldValidator ID="RfvEditor" runat="server" ControlToValidate="DdlEditor" ErrorMessage="É necessário preencher o campo Editor" Text="*"></asp:RequiredFieldValidator>
 		</div>
 
+		<asp:Label ID="LblMensagem" runat="server" />
 		<asp:Button ID="BtnGravar" Text="Gravar" runat="server" CssClass="btn btn-primary" runat="server" OnClick="BtnGravar_Click"/>
 
 		<asp:ValidationSummary 
@@ -47,5 +48,7 @@
 			EnableClientScript="true"
 			HeaderText="Você precisa corrigir os seguintes campos: "
 		/>
+
+		<a href="Catalogo.aspx">Voltar ao catálogo de jogos</a>
 	</div>
 </asp:Content>

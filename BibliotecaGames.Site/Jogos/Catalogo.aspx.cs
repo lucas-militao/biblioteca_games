@@ -1,4 +1,4 @@
-﻿using BibliotecaGames.BLL.Autenticacao;
+﻿using BibliotecaGames.BLL;
 using System;
 using System.Web.UI;
 
