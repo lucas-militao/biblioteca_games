@@ -7,20 +7,22 @@
 
 	<h2>Catálogo de Jogos</h2>
 
-	<a href="CadastroEdicaoJogo.aspx">Cadastrar Novo Jogo</a>
-	<hr />
-	<asp:Repeater ID="RepeaterJogos" runat="server">
-		<ItemTemplate>
-			<div class="container" onclick="redirecionarParaPaginaDoJogo('<%= Session["Perfil"].ToString() %>', <%# DataBinder.Eval(Container.DataItem, "Id") %>)">
-				<div class="capa-jogo">
-					<img src="../Content/ImagensJogos/<%# DataBinder.Eval(Container.DataItem, "Imagem") %>" alt="<%# DataBinder.Eval(Container.DataItem, "Titulo") %>"/>
+	<div class="lista-jogos">
+		<a href="CadastroEdicaoJogo.aspx">Cadastrar Novo Jogo</a>
+		<hr />
+		<asp:Repeater ID="RepeaterJogos" runat="server">
+			<ItemTemplate>
+				<div class="container" onclick="redirecionarParaPaginaDoJogo('<%= Session["Perfil"].ToString() %>', <%# DataBinder.Eval(Container.DataItem, "Id") %>)">
+					<div class="capa-jogo">
+						<img src="../Content/ImagensJogos/<%# DataBinder.Eval(Container.DataItem, "Imagem") %>" alt="<%# DataBinder.Eval(Container.DataItem, "Titulo") %>"/>
+					</div>
+					<div class="nome-jogo">
+						<%# DataBinder.Eval(Container.DataItem, "Titulo") %>
+					</div>
 				</div>
-				<div class="nome-jogo">
-					<%# DataBinder.Eval(Container.DataItem, "Titulo") %>
-				</div>
-			</div>
-		</ItemTemplate>
-	</asp:Repeater>
+			</ItemTemplate>
+		</asp:Repeater>
+	</div>
 
 	<script>
 		function redirecionarParaPaginaDoJogo(perfil, id) {

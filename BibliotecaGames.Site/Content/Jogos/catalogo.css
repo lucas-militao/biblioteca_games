@@ -1,6 +1,10 @@
-﻿.container {
-	display: block;
+﻿.lista-jogos {
+	flex-direction: row;
+}
+
+.container {
 	cursor: pointer;
+	background-color: red;
 }
 
 .jogo {

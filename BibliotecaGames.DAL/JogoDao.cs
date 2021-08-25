@@ -94,5 +94,46 @@ namespace BibliotecaGames.DAL
 			}
 
 		}
+
+		public Jogo ObterJogoPeloId(int id)
+		{
+			try
+			{
+				var command = new SqlCommand();
+				command.Connection = Conexao.connection;
+				command.CommandText = "SELECT * FROM jogos where id = @id";
+
+				command.Parameters.AddWithValue("@id", id);
+
+				Conexao.Conectar();
+
+				var reader = command.ExecuteReader();
+
+				Jogo jogo = null;
+
+				while (reader.NextResult())
+				{
+					jogo = new Jogo();
+
+					jogo.Id = Convert.ToInt32(reader["id"]);
+					jogo.Imagem = reader["imagem"].ToString();
+					jogo.DataCompra = reader["data_compra"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["data_compra"]);
+					jogo.Titulo = reader["titulo"].ToString();
+					jogo.ValorPago = reader["valor_pago"] == DBNull.Value ? (double?)null : Convert.ToDouble(reader["valor_pago"]);
+					jogo.IdEditor = Convert.ToInt32(reader["id_editor"]);
+					jogo.IdGenero = Convert.ToInt32(reader["id_genero"]);
+
+				}
+				return jogo;
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+			finally
+			{
+				Conexao.Desconectar();
+			}
+		}
 	}
 }

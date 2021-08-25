@@ -36,10 +36,11 @@
 			<asp:DropDownList ID="DdlEditor" runat="server" CssClass="form-control" DataValueField="Id" DataTextField="Nome"></asp:DropDownList>
 			<asp:RequiredFieldValidator ID="RfvEditor" runat="server" ControlToValidate="DdlEditor" ErrorMessage="É necessário preencher o campo Editor" Text="*"></asp:RequiredFieldValidator>
 		</div>
-
+		<br />
 		<asp:Label ID="LblMensagem" runat="server" />
+		<br />
 		<asp:Button ID="BtnGravar" Text="Gravar" runat="server" CssClass="btn btn-primary" runat="server" OnClick="BtnGravar_Click"/>
-
+		<br />
 		<asp:ValidationSummary 
 			runat="server" 
 			DisplayMode="BulletList"
@@ -48,7 +49,7 @@
 			EnableClientScript="true"
 			HeaderText="Você precisa corrigir os seguintes campos: "
 		/>
-
+		<br />
 		<a href="Catalogo.aspx">Voltar ao catálogo de jogos</a>
 	</div>
 </asp:Content>

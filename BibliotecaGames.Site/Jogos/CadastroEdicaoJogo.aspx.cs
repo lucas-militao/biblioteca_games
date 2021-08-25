@@ -20,6 +20,12 @@ namespace BibliotecaGames.Site.Jogos
 			{
 				CarregarGenerosNaCombo();
 				CarregarEditoresNaCombo();
+
+				if (EstaEmModoEdicao())
+				{
+					CarregarDadosParaEdicao();
+				}
+				
 			}
 		}
 
@@ -50,10 +56,13 @@ namespace BibliotecaGames.Site.Jogos
 			try
 			{
 				_jogosBo.InserirNovoJogo(jogo);
+
+				LblMensagem.ForeColor = System.Drawing.Color.Green;
 				LblMensagem.Text = "Jogo cadastrado com sucesso!";
 			}
 			catch (Exception)
 			{
+				LblMensagem.ForeColor = System.Drawing.Color.Red;
 				LblMensagem.Text = "Ocorreu um erro ao gravar o jogo!";
 				throw;
 			}
@@ -98,6 +107,44 @@ namespace BibliotecaGames.Site.Jogos
 
 			DdlGenero.DataSource = generos;
 			DdlGenero.DataBind();
+		}
+
+		public void CarregarDadosParaEdicao()
+		{
+			_jogosBo = new JogosBo();
+
+			var id = ObterIdDoJogo();
+
+			var jogo = _jogosBo.ObterJogoPeloId(id);
+
+			TxtTitulo.Text = jogo.Titulo;
+			TxtValorPago.Text = jogo.ValorPago.ToString();
+			TxtDataCompra.Text = jogo.DataCompra.ToString();
+			DdlEditor.Text = jogo.IdEditor.ToString();
+			DdlGenero.Text = jogo.IdGenero.ToString();
+		}
+
+		private int ObterIdDoJogo()
+		{
+			var id = 0;
+			var idQueryString = Request.QueryString["id"];
+			if (int.TryParse(idQueryString, out id))
+			{
+				if (id <= 0)
+				{
+					throw new Exception("ID inválido");
+				}
+				return id;
+			}
+			else
+			{
+				throw new Exception("ID inválido");
+			}
+		}
+
+		private Boolean EstaEmModoEdicao()
+		{
+			return Request.QueryString.AllKeys.Contains("id");
 		}
 	}
 }
