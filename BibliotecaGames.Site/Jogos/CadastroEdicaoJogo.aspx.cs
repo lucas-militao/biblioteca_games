@@ -119,7 +119,7 @@ namespace BibliotecaGames.Site.Jogos
 
 			TxtTitulo.Text = jogo.Titulo;
 			TxtValorPago.Text = jogo.ValorPago.ToString();
-			TxtDataCompra.Text = jogo.DataCompra.ToString();
+			TxtDataCompra.Text = jogo.DataCompra.HasValue ? jogo.DataCompra.Value.ToString("yyyy-MM-dd") : string.Empty;
 			DdlEditor.Text = jogo.IdEditor.ToString();
 			DdlGenero.Text = jogo.IdGenero.ToString();
 		}

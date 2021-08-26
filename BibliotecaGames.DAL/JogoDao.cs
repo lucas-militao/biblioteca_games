@@ -111,7 +111,7 @@ namespace BibliotecaGames.DAL
 
 				Jogo jogo = null;
 
-				while (reader.NextResult())
+				while (reader.Read())
 				{
 					jogo = new Jogo();
 

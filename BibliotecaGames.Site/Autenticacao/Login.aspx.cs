@@ -29,7 +29,6 @@ namespace BibliotecaGames.Site.Autenticacao
 			{
 				var usuario = _loginBo.ObterUsuarioParaLogar(nomeUsuario, senha);
 				FormsAuthentication.RedirectFromLoginPage(nomeUsuario, false);
-				Session.Timeout = 30;
 				Session["Perfil"] = usuario.Perfil;
 			}
 			catch(UsuarioNaoCadastradoException)
