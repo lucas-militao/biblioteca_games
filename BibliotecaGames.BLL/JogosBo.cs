@@ -55,5 +55,19 @@ namespace BibliotecaGames.BLL
 				throw new JogoInvalidoException();
 			}
 		}
+
+		public void AlterarJogo(Jogo jogo)
+		{
+			_jogoDao = new JogoDao();
+
+			ValidarJogo(jogo);
+
+			var linhasAfetadas = _jogoDao.AlterarJogo(jogo);
+
+			if (linhasAfetadas == 0)
+			{
+				throw new JogoNaoAlteradoException();
+			}
+		}
 	}
 }

@@ -30,9 +30,9 @@ namespace BibliotecaGames.DAL
 
 					jogo.Id = Convert.ToInt32(reader["id"]);
 					jogo.Imagem = reader["imagem"].ToString();
-					jogo.DataCompra = reader["data_compra"] == DBNull.Value ? (DateTime?) null : Convert.ToDateTime(reader["data_compra"]);
+					jogo.DataCompra = reader["data_compra"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["data_compra"]);
 					jogo.Titulo = reader["titulo"].ToString();
-					jogo.ValorPago = reader["valor_pago"] == DBNull.Value ? (double?) null : Convert.ToDouble(reader["valor_pago"]);
+					jogo.ValorPago = reader["valor_pago"] == DBNull.Value ? (double?)null : Convert.ToDouble(reader["valor_pago"]);
 
 					jogos.Add(jogo);
 				}
@@ -135,5 +135,46 @@ namespace BibliotecaGames.DAL
 				Conexao.Desconectar();
 			}
 		}
+
+		public int AlterarJogo(Jogo jogo)
+		{
+			try
+			{
+				var command = new SqlCommand();
+				command.Connection = Conexao.connection;
+
+				command.CommandText = @"UPDATE [dbo].[jogos]
+										   SET [titulo] = @TITULO
+											  ,[valor_pago] = @VALOR_PAGO
+											  ,[data_compra] = @DATA_COMPRA
+											  ,[id_genero] = @ID_GENERO
+											  ,[id_editor] = @ID_EDITOR
+											  
+										 WHERE Id = @ID";
+
+
+				command.Parameters.AddWithValue("@TITULO", jogo.Titulo);
+				command.Parameters.AddWithValue("@VALOR_PAGO", jogo.ValorPago);
+				command.Parameters.AddWithValue("@DATA_COMPRA", jogo.DataCompra);
+				command.Parameters.AddWithValue("@ID_GENERO", jogo.IdGenero);
+				command.Parameters.AddWithValue("@ID_EDITOR", jogo.IdEditor);
+				//command.Parameters.AddWithValue("@IMAGEM", jogo.Imagem);
+				command.Parameters.AddWithValue("@ID", jogo.Id);
+
+
+				Conexao.Conectar();
+
+				return command.ExecuteNonQuery();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+			finally
+			{
+				Conexao.Desconectar();
+			}
+		}
 	}
+
 }

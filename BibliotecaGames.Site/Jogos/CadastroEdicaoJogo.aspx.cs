@@ -33,11 +33,9 @@ namespace BibliotecaGames.Site.Jogos
 		{
 			_jogosBo = new JogosBo();
 
-			var jogo = new Jogo();
+			//var jogo = new Jogo();
 
-			jogo.Titulo = TxtTitulo.Text;
-			jogo.ValorPago = string.IsNullOrWhiteSpace(TxtValorPago.Text) ? (double?) null : Convert.ToDouble(TxtValorPago.Text);
-			jogo.DataCompra = string.IsNullOrWhiteSpace(TxtDataCompra.Text) ? (DateTime?) null : Convert.ToDateTime(TxtDataCompra.Text);
+			var jogo = ObterModeloPreenchido();
 
 			try
 			{
@@ -49,16 +47,27 @@ namespace BibliotecaGames.Site.Jogos
 				throw;
 			}
 			
-			jogo.IdGenero = Convert.ToInt32(DdlGenero.SelectedValue);
-			jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
 			BtnGravar.Enabled = false;
 
 			try
 			{
-				_jogosBo.InserirNovoJogo(jogo);
+				var mensagemDeSucesso = "";
+
+				if (EstaEmModoEdicao())
+				{
+					jogo.Id = ObterIdDoJogo();
+					_jogosBo.AlterarJogo(jogo);
+					mensagemDeSucesso = "Jogo alterado com sucesso!";
+				}
+				else
+				{
+					_jogosBo.InserirNovoJogo(jogo);
+					LblMensagem.Text = "Jogo cadastrado com sucesso!";
+				}
+
 
 				LblMensagem.ForeColor = System.Drawing.Color.Green;
-				LblMensagem.Text = "Jogo cadastrado com sucesso!";
+				LblMensagem.Text = mensagemDeSucesso;
 			}
 			catch (Exception)
 			{
@@ -66,6 +75,18 @@ namespace BibliotecaGames.Site.Jogos
 				LblMensagem.Text = "Ocorreu um erro ao gravar o jogo!";
 				throw;
 			}
+		}
+
+		private Jogo ObterModeloPreenchido()
+		{
+			var jogo = new Jogo();
+			jogo.Titulo = TxtTitulo.Text;
+			jogo.ValorPago = string.IsNullOrWhiteSpace(TxtValorPago.Text) ? (double?)null : Convert.ToDouble(TxtValorPago.Text);
+			jogo.DataCompra = string.IsNullOrWhiteSpace(TxtDataCompra.Text) ? (DateTime?)null : Convert.ToDateTime(TxtDataCompra.Text);
+			jogo.IdGenero = Convert.ToInt32(DdlGenero.SelectedValue);
+			jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
+
+			return jogo;
 		}
 
 		private string GravarImagemNoDisco()
