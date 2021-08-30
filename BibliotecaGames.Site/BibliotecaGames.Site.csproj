@@ -86,6 +86,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\ImagensJogos\ResidentEvil4.jpg" />
     <Content Include="Content\Jogos\catalogo.css" />
+    <Content Include="Content\Jogos\index.css" />
     <Content Include="Global.asax" />
     <Content Include="Jogos\CadastroEdicaoJogo.aspx" />
     <Content Include="Jogos\Catalogo.aspx" />

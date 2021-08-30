@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="../Content/Jogos/index.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -18,6 +19,7 @@
 						<asp:MenuItem Text="Catálogo" Value="Catálogo"></asp:MenuItem>
 						<asp:MenuItem Text="Cadastro" Value="CadastrarJogos"></asp:MenuItem>
 					</asp:MenuItem>
+					<asp:MenuItem Text="Sair" Value="Sair" NavigateUrl="~/Jogos/Catalogo.aspx?logout=logout"></asp:MenuItem>
 				</Items>
 			</asp:Menu>
 			<div style="margin: 40px 0 0 30px"/>

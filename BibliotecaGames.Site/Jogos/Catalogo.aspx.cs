@@ -1,5 +1,6 @@
 ﻿using BibliotecaGames.BLL;
 using System;
+using System.Web.Security;
 using System.Web.UI;
 
 namespace BibliotecaGames.Site.Jogos
@@ -12,6 +13,7 @@ namespace BibliotecaGames.Site.Jogos
 			if (!Page.IsPostBack)
 			{
 				carregarJogosNoRepeater();
+				Deslogar();
 			}
 		}
 
@@ -20,6 +22,17 @@ namespace BibliotecaGames.Site.Jogos
 			_jogosBo = new JogosBo();
 			RepeaterJogos.DataSource = _jogosBo.ObterTodosOsJogos();
 			RepeaterJogos.DataBind();
+		}
+
+		private void Deslogar()
+		{
+			if (!string.IsNullOrEmpty(Page.Request.QueryString["logout"]))
+			{
+				FormsAuthentication.SignOut();
+				Session.Abandon();
+				//FormsAuthentication.RedirectToLoginPage();
+				Response.Redirect("/Autenticacao/Login.aspx");
+			}
 		}
 	}
 }
